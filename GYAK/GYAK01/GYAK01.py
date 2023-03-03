@@ -8,7 +8,7 @@ from typing import List, Dict
 # input parameters: input_list
 
 
-def contains_add(input_list: List[numbers.Real]) -> bool:
+def contains_add(input_list: List) -> bool:
     contains_odd: bool
     contains_odd = any(number % 2 != 0 for number in input_list)
     return contains_odd
