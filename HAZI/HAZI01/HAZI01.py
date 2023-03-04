@@ -12,7 +12,7 @@ from typing import List, Tuple, Dict
 # %%
 def subset(input_list: List, start_index: int, end_index: int) -> List:
     subset_of_list: List
-    subset_of_list = input_list[start_index:end_index + 1]
+    subset_of_list = input_list[start_index:end_index]
     return subset_of_list
 
 
