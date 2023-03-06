@@ -109,11 +109,10 @@ def transpose(input_list: List) -> List:
 # function name must be: split_into_chunks
 # input parameters: input_list,chunk_size
 # %%
-def split_into_chunks(input_list: List, chunk_size: int) -> List:
-    chunks: List = []
-
-    return chunks
-
+def split_into_chunks(input_list: List, chunk_size: int) -> List[List]:
+    nested_list: List[List]
+    nested_list = [input_list[i:i + chunk_size] for i in range(0, len(input_list), chunk_size)]
+    return nested_list
 
 # %%
 # Create a function that can merge n dictionaries
