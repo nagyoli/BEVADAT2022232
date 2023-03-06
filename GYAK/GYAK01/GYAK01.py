@@ -8,10 +8,10 @@ from typing import List, Dict
 # input parameters: input_list
 
 
-def contains_add(input_list: List) -> bool:
-    contains_odd: bool
-    contains_odd = any(number % 2 != 0 for number in input_list)
-    return contains_odd
+def contains_odd(input_list: List) -> bool:
+    contains: bool
+    contains = any(number % 2 != 0 for number in input_list)
+    return contains
 
 
 # Create a function that accepts a list of integers, and returns a list of bool.
