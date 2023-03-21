@@ -1,4 +1,9 @@
 .idea
+<<<<<<< Updated upstream
+=======
+*.pdf
+*.csv
+>>>>>>> Stashed changes
 
 ### MicrosoftOffice template
 *.tmp
