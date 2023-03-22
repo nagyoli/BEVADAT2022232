@@ -57,7 +57,7 @@ függvény neve: capitalize_columns
 
 def capitalize_columns(input_df: pd.DataFrame) -> pd.DataFrame:
     result_df: pd.DataFrame = input_df.copy()
-    result_df.columns= [column.upper() if 'e' in column else column for column in result_df.columns]
+    result_df.columns= [column if 'e' in column else column.upper() for column in result_df.columns]
     return result_df
 
 # In[ ]:
