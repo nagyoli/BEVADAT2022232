@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from typing import Tuple, List
-
+from itertools import chain
 
 # In[ ]:
 
@@ -172,7 +172,7 @@ def female_top_score(input_df: pd.DataFrame) -> Tuple:
     columns_to_use: List = ['math score', 'reading score', 'writing score']
     df['total score'] = df[columns_to_use].sum(axis=1)
     res: pd.DataFrame = df[df['gender'] == 'female'].nlargest(1, 'total score', keep='first')
-    tuple_to_return: Tuple = tuple(res[columns_to_use].values)
+    tuple_to_return: Tuple = tuple(chain.from_iterable(res[columns_to_use].values))
     return tuple_to_return
 
 
