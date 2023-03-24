@@ -79,7 +79,7 @@ függvény neve: math_passed_count
 
 def math_passed_count(input_df: pd.DataFrame) -> int:
     df: pd.DataFrame = input_df.copy()
-    result: int = int(df['math score'][df['math score'] > 50].count(axis=0))
+    result: int = df['math score'][df['math score'] > 50].count()
     return result
 
 
