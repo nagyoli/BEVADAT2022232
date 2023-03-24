@@ -298,12 +298,10 @@ def ethnicity_pie_chart(input_data: pd.DataFrame) -> plt.Figure:
     df: pd.DataFrame = input_data.copy()
     df['counter'] = 1
     columns_to_use: List = ['race/ethnicity', 'counter']
+    df_to_use: pd.DataFrame = df[columns_to_use].groupby(by=columns_to_use[0]).sum().reset_index()
     fig, ax = plt.subplots()
-    fig = df[columns_to_use].groupby(by=columns_to_use[0]).sum().plot.pie(y=columns_to_use[1],
-                                                                          ax=ax,
-                                                                          legend=False,
-                                                                          ylabel="",
-                                                                          title='Proportion of Students by Race/Ethnicity',
-                                                                          autopct='%1.1f%%')
+    ax.pie(df_to_use[columns_to_use[1]],labels= df_to_use[columns_to_use[0]], autopct='%1.1f%%')
+    ax.set_title('Proportion of Students by Race/Ethnicity')
+
 
     return fig
