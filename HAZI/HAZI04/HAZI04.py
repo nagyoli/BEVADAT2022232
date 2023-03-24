@@ -202,8 +202,12 @@ függvény neve: add_grade
 def add_grade(input_df: pd.DataFrame) -> pd.DataFrame:
     df: pd.DataFrame = input_df.copy()
     columns_to_use: List = ['math score', 'reading score', 'writing score']
-    df['grade'] = df[columns_to_use].sum(axis=1) / 3
-    df['grade'] = df['grade'].mask(df['grade'] < 100 , 'A')                            .mask(df['grade'] < 90 , 'B')                            .mask(df['grade'] < 80 , 'C')                            .mask(df['grade'] < 70 , 'D')                            .mask(df['grade'] < 60 , 'F')
+    df['point'] = df[columns_to_use].sum(axis=1) / 3
+    df['grade'] = df['grade'][df['point'] < 100 ] = 'A'
+    df['grade'][df['point'] < 90] = 'B'
+    df['grade'][df['point'] < 80] = 'C'
+    df['grade'][df['point'] < 70] = 'D'
+    df['grade'][df['point'] < 60] = 'F'
     return df
 
 
