@@ -235,13 +235,12 @@ függvény neve: math_bar_plot
 def math_bar_plot(input_data: pd.DataFrame) -> plt.Figure:
     df: pd.DataFrame = input_data.copy()
     columns_to_use: List = ['gender','math score']
+    df_to_use: pd.DataFrame = df[columns_to_use].groupby(by=columns_to_use[0]).mean().reset_index()
     fig, ax = plt.subplots()
-    df[columns_to_use].groupby(by=columns_to_use[0]).mean().plot(kind='bar',
-                                                                 ax=ax,
-                                                                 title='Average Math Score by Gender',
-                                                                 xlabel = 'Gender',
-                                                                 ylabel = 'Math Score',
-                                                                 legend = False)
+    ax.bar(df_to_use['gender'], df_to_use['math score'])
+    ax.set_title('Average Math Score by Gender')
+    ax.set_xlabel('Gender')
+    ax.set_ylabel('Math Score')
     return fig
 
 # In[ ]:
