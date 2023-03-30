@@ -49,7 +49,7 @@ class KNNClassifier:
         sns.heatmap(conf_matrix, annot=True)
 
     @property
-    def k_neighbours(self):
+    def k_neighbors(self):
         return self.k
 
     @staticmethod
