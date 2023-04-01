@@ -46,7 +46,7 @@ class KNNClassifier:
 
     def plot_confusion_matrix(self) -> np.ndarray:
         conf_matrix = confusion_matrix(self.y_test, self.y_preds)
-        return np.ndarray(conf_matrix)
+        return np.array(conf_matrix)
 
     @property
     def k_neighbors(self):
