@@ -60,17 +60,17 @@ class KNNClassifier:
         return self.k
 
 
-    def best_k(self, k: int) -> Tuple[int, float]:
+    def best_k(self) -> Tuple[int, float]:
         best_k = 0
-        best_accuracy = 0.0
-        original_k = k
+        best_acc = 0.0
+        original_k = self.k
         for i in range(20):
-            k = i+1
+            self.k = i+1
             self.predict()
-            current_accuracy = self.accuracy()
-            if (best_accuracy < current_accuracy):
-                best_k = k
-                best_accuracy = current_accuracy
+            current_acc = self.accuracy()
+            if best_acc < current_acc:
+                best_k = self.k
+                best_acc = current_acc
 
         self.k = original_k
-        return best_k, round(best_accuracy, 2)
+        return best_k, round(best_acc, 2)
