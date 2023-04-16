@@ -74,15 +74,15 @@ class NJCleaner:
         self.data = self.data.drop(columns=columns_to_drop)
         return self.data
 
-    def save_first_60k(self, path_to_save: str) -> None:
-        self.data.iloc[:60000].to_csv(path_to_save, index=False, sep=',')
+    def save_first_60k(self, path: str) -> None:
+        self.data.iloc[:60000].to_csv(path, index=False, sep=',')
 
 
-    def prep_df(self, path_to_save: str = 'data/NJ.csv') -> None:
+    def prep_df(self, path: str = 'data/NJ.csv') -> None:
         self.order_by_scheduled_time()
         self.drop_columns_and_nan()
         self.convert_date_to_day()
         self.convert_scheduled_time_to_part_of_the_day()
         self.convert_delay()
         self.drop_unnecessary_columns()
-        self.save_first_60k(path_to_save)
+        self.save_first_60k(path)
