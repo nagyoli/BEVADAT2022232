@@ -17,7 +17,7 @@ class KMeansOnDigits():
         self.clusters = kmeans.fit_predict(X=self.digits.data, y=self.digits.target)
 
     def get_labels(self):
-        result = np.zeros_like(self.clusters.shape)
+        result = np.zeros_like(self.clusters)
         for i in range(10):
             mask = (self.clusters == i)
             subarray = self.digits.target[mask]
