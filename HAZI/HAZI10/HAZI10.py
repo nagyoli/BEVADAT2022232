@@ -10,7 +10,7 @@ from typing import Tuple
 # függvény neve: mnist_digit_data
 
 
-def mnist_digits_data() -> Tuple:
+def mnist_digits_data():
     (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.fashion_mnist.load_data()
     train_images = train_images / 255.0
     test_images = test_images / 255.0
